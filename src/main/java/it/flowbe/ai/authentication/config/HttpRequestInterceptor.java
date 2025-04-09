@@ -64,10 +64,10 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String scheme = request.getScheme();         
         String serverName = request.getServerName(); 
-        int serverPort = request.getServerPort(); 
+        //int serverPort = request.getServerPort(); 
         String url = request.getRequestURL().toString();
         System.out.println(url);
-        String baseUrl = scheme + "://" + serverName + ":" + serverPort;
+        String baseUrl = scheme + "://" + serverName;
         String clientId = request.getHeader("client_id");
         String clientSecret = request.getHeader("client_secret");
         
