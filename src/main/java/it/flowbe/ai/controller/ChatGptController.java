@@ -48,8 +48,8 @@ public class ChatGptController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE), description = "success"),
             @ApiResponse(responseCode = "503", content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE), description = "service not available") })
-    @PostMapping(value = "/chat/{sessionId}/{message}/")
-    public ResponseEntity<String> chat(@PathVariable String sessionId, @PathVariable String message) throws ClassNotFoundException, NoSuchFieldException, SecurityException, 
+    @PostMapping(value = "/chat/{sessionId}/")
+    public ResponseEntity<String> chat(@PathVariable String sessionId, @RequestBody String message) throws ClassNotFoundException, NoSuchFieldException, SecurityException, 
         IllegalArgumentException, IllegalAccessException, InstantiationException, JsonProcessingException, InvocationTargetException, NoSuchMethodException {
         return ResponseEntity.ok(chatGptService.chat(sessionId, message));
     }
