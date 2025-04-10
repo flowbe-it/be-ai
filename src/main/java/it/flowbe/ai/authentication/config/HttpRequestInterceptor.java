@@ -66,8 +66,9 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
         String serverName = request.getServerName(); 
         //int serverPort = request.getServerPort(); 
         String url = request.getRequestURL().toString();
-        System.out.println(url);
+        //System.out.println(url);
         String baseUrl = scheme + "://" + serverName;
+        System.out.println("BASEURL:" +baseUrl);
         String clientId = request.getHeader("client_id");
         String clientSecret = request.getHeader("client_secret");
         
