@@ -195,6 +195,7 @@ public class ChatGptServiceImpl implements ChatGptService {
 		//String sOrderIssueResponse = otRestTemplate.postForObject(newUrl, httpEntity, String.class);
 		String sDocuments = aiRestTemplate.exchange(newUrl, HttpMethod.GET, httpEntity, String.class).getBody();
 		//String sIdSessione = aiRestTemplate.postForObject(newUrl, httpEntity, String.class);
+		System.out.println("DOCUMENTS: "+sDocuments);
 		JSONObject jsonResponse = new JSONObject(sDocuments);
 		
         return jsonResponse.toString();
