@@ -71,8 +71,6 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
         System.out.println("BASEURL:" +baseUrl);
         String clientId = request.getHeader("clientId");
         String clientSecret = request.getHeader("clientSecret");
-        System.out.println("clientId:" +clientId);
-        System.out.println("clientSecret: " +clientSecret);
         
         if(!Objects.toString(clientId, "").isEmpty()) {
             String clientSecretKeycloak = keycloakUtils.getClientSecret(realm, clientId);
