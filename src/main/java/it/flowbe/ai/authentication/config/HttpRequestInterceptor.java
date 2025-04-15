@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -72,9 +73,12 @@ public class HttpRequestInterceptor implements HandlerInterceptor {
         String clientId = request.getHeader("clientId");
         String clientSecret = request.getHeader("clientSecret");
         
+        String[] authorizedUrl = referrerAuthorizedUrl.split(";");
+        boolean bAuthorized = Stream.of(authorizedUrl).anyMatch(baseUrl::equals);
+        
         if(!Objects.toString(clientId, "").isEmpty()) {
             String clientSecretKeycloak = keycloakUtils.getClientSecret(realm, clientId);
-            if((clientSecretKeycloak.equals(clientSecret)) && (referrerAuthorizedUrl.equals(baseUrl)))
+            if((clientSecretKeycloak.equals(clientSecret)) && bAuthorized)
             	return true;
             else
             	return false;
