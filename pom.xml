@@ -179,6 +179,12 @@
 		    <artifactId>spring-web</artifactId>
 		    <version>6.2.8</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.7.7</version>
+		</dependency>
         <!-- fine snyk -->
         
     </dependencies>
