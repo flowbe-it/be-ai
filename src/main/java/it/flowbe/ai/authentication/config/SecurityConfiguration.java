@@ -28,6 +28,8 @@ public class SecurityConfiguration {
                 .requestMatchers("/actuator/**").permitAll()
                 //abilitate bypassando sicurezza keycloak chiamate token e admin
                 .requestMatchers("/api/v1/token/**", "/api/v1/ai/**").permitAll()
+                //abilitato x healthCheck
+                .requestMatchers("/api/v1/isOk").permitAll()
                 .requestMatchers(new RegexRequestMatcher(P12ErrorController.PATH_FOR_SECURITY_CONFIG, HttpMethod.POST.name())).permitAll()
                 .requestMatchers(new RegexRequestMatcher(P12ErrorController.PATH_FOR_SECURITY_CONFIG, HttpMethod.GET.name())).permitAll()
                 .requestMatchers(new RegexRequestMatcher(P12ErrorController.PATH_FOR_SECURITY_CONFIG, HttpMethod.DELETE.name())).permitAll()
