@@ -31,9 +31,9 @@ public class SwaggerConfig {
 		
         return new OpenAPI()
         	.components(components)
-        	.info(new Info().title("OT API")
+        	.info(new Info().title("AI API")
             .version(appVersion)
-            .description("This is an api for order tracking."));
+            .description("This is an api for ai engine."));
     }
 
 }
